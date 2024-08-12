@@ -1,0 +1,26 @@
+footprint: [[-0.34, -0.19], [-0.34, 0.19], [0.34, 0.19], [0.34, -0.19]]
+footprint_padding: 0.03
+transform_tolerance: 0.5
+
+static_layer:
+  enabled:             false
+
+obstacle_layer_local:
+  track_unknown_space: true
+  obstacle_range: 10.0
+  raytrace_range: 10.1
+  observation_sources: point_cloud_sonar
+  point_cloud_somar: {data_type: PointCloud2, expected_update_rate: 0.5, topic: /wmav/sonar, marking: true, clearing: true, max_obstacle_height: 9999, min_obstacle_height: -9999}
+
+
+obstacle_layer_global:
+  track_unknown_space: true
+  obstacle_range: 10.0
+  raytrace_range: 10.1
+  observation_sources: point_cloud_sonar
+  point_cloud_somar: {data_type: PointCloud2, expected_update_rate: 0.5, topic: /wmav/sonar, marking: true, clearing: false, max_obstacle_height: 9999, min_obstacle_height: -9999}
+ 
+
+inflation_layer:
+  cost_scaling_factor:  3.0
+  inflation_radius:     0.10
